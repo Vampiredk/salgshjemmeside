@@ -1,0 +1,63 @@
+.topNavBar {
+    position: absolute;
+    top:5%;    
+}
+.card {
+    width: 300px;
+    background: gray;
+    color: white;
+    margin: 10px;
+    display: inline-block;
+}
+
+.cardtitle {
+    width: 300px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    text-align: center;
+    font-size: 22;
+    background: black;
+}
+
+.cardbody {
+    height: 200px;
+    width: 300px;
+    padding: 10px;
+    bottom:300px;
+}
+
+.cardDescription {
+    height: 10%;
+}
+
+.cardInfo {
+    position:relative;
+    top: 75%;
+    width: 300px;
+    text-align: center;
+}
+
+.cardInteraction {
+    width: 300px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    background: black;
+}
+
+.cardquntity {
+    position: relative;
+    padding-left: 10px;
+    display: inline;
+}
+
+.cardbtnPos {
+    position: relative;
+    text-align: right;
+    display: inline;
+    left: 15%;
+}
+
+.cardbtn {
+    height: 25px;
+    width: 100px;
+}
