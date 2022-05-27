@@ -4,14 +4,7 @@
   </head>
   <body>
     <div class="home">
-      <br>
-      <br>
-      <br>
-      <br>
-      <br>
-      <br>
-      <br>
-      <div v-for="product in inventory.slice(0,4)" :key="product.id" class="card">
+      <div v-for="product in inventory.slice(0,10)" :key="product.id" class="card">
         <div class="cardtitle">
           {{ product.name }}
         </div>
