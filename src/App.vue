@@ -18,8 +18,44 @@
       </div>
     </div>
   </nav>
-  <router-view/>
+  <router-view
+    :cart="cart"
+    :addvare="addvare"
+  />
+
+  <HelloWorld
+    :inventory="inventory"
+    :cart="cart"
+  />
 </template>
+
+<script>
+import HelloWorld from './components/HelloWorld.vue'
+
+export default {
+  components: {
+    HelloWorld
+  },
+  data () {
+    return {
+      cart: {
+        Mælk: 0,
+        Kebab: 0,
+        Tesla: 0,
+        Uran235: 0
+      }
+    }
+  },
+  computed: {
+  },
+  methods: {
+    addvare (type, quantity) {
+      this.cart[type] += quantity
+      console.log(this.cart)
+    }
+  }
+}
+</script>
 
 <style>
 </style>

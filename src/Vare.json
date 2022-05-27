@@ -1,0 +1,6 @@
+[
+    {"id": 1,     "name": "Mælk",      "price": 42,        "stock": 420 },
+    {"id": 2,     "name": "Kebab",     "price": 67,        "stock": 200 },
+    {"id": 3,     "name": "Tesla",     "price": 21,        "stock": 3   },
+    {"id": 4,     "name": "Uran235",     "price": 9999,      "stock": 1   }    
+]
