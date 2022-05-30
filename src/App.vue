@@ -8,11 +8,11 @@
           <router-link to="/">
             <button class="topbarbtn">Home</button>
           </router-link>
-          <router-link to="/about">
-            <button class="topbarbtn">about</button>
+          <router-link to="/kurv">
+            <button class="topbarbtn">Product</button>
           </router-link>
           <div class="topbarcontentright">
-            <button class="topbarbtn">kurv</button>
+            <button class="topbarbtn" @click="toggleKurv">kurv</button>
           </div>
         </div>
       </div>
@@ -24,8 +24,9 @@
   />
 
   <HelloWorld
-    :inventory="inventory"
     :cart="cart"
+    :showkurv="showkurv"
+    :togglekurv="togglekurv"
   />
 </template>
 
@@ -38,20 +39,26 @@ export default {
   },
   data () {
     return {
-      cart: {
-        Mælk: 0,
-        Kebab: 0,
-        Tesla: 0,
-        Uran235: 0
-      }
+      cart: {},
+      showkurv: false
     }
   },
   computed: {
   },
   methods: {
-    addvare (type, quantity) {
-      this.cart[type] += quantity
+    addvare (name, quantity) {
+      if (!this.cart[name]) this.cart[name] = 0
+      this.cart[name] += quantity
       console.log(this.cart)
+    },
+    toggleKurv () {
+      if (this.showkurv === true) {
+        console.log('lukker for Kurv')
+        this.showkurv = false
+      } else if (this.showkurv === false) {
+        console.log('Åbner for Kurv')
+        this.showkurv = true
+      }
     }
   }
 }

@@ -1,0 +1,38 @@
+.cart {
+    position: absolute;
+    height: 50%;
+    width: 400px;
+    background-color: gray;
+    color: azure;
+    text-align: center;
+    right: 0px;
+    top: 50px;
+    border-color: rgb(71, 236, 236);
+    border-width: 1px;
+}
+
+.carthead {
+    position: relative;
+    width: 100%;
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+
+.cartname {
+    width: 100px;
+}
+
+.cartbody {
+    position: relative;
+    width: 100%;
+    margin-top: 8px;
+    margin-bottom: 8px;
+}
+
+.cartbtn {
+    border-radius: 8px;
+}
+
+td {
+    text-align: center;
+}
