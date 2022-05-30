@@ -14,9 +14,9 @@
         <tr v-for="(quantity, key, i) in cart" :key="i">
           <td class="cartname"> {{ key }}</td>
           <td class="cartname"> {{ quantity }}</td>
-          <td class="cartname"> 242</td>
+          <td class="cartname"> {{ findprice(key) }}</td>
           <td class="cartname">
-            <button class="cartbtn"> X </button>
+            <button class="cartbtn" @click="removevare(i)"> X </button>
           </td>
         </tr>
       </tbody>
@@ -25,22 +25,28 @@
 </template>
 
 <script>
-import vare from '../Vare.json'
+import inventory from '../Vare.json'
 // @ is an alias to /src
 
 export default {
   name: 'KurvView',
-  props: ['addvare', 'cart'],
+  props: ['addvare', 'cart', 'removevare'],
   data () {
     return {
       quantity: 0,
-      inventory: vare
+      inventory: inventory
     }
   },
   methods: {
-  },
-  created: function () {
-    console.log(this.cart)
+    findprice (name) {
+      console.log(name)
+      if (name !== undefined) {
+        const product = this.vare.find((p) => {
+          return p.name === name
+        })
+        return product.price
+      }
+    }
   }
 }
 </script>

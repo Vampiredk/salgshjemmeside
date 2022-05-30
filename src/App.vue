@@ -21,6 +21,7 @@
   <router-view
     :cart="cart"
     :addvare="addvare"
+    :removevare="removevare"
   />
 
   <HelloWorld
@@ -59,6 +60,9 @@ export default {
         console.log('Åbner for Kurv')
         this.showkurv = true
       }
+    },
+    removevare (name) {
+      delete this.cart[name]
     }
   }
 }
