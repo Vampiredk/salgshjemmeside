@@ -11,6 +11,9 @@
           <router-link to="/kurv">
             <button class="topbarbtn">Product</button>
           </router-link>
+          <router-link to="/admin">
+            <button class="topbarbtn">Admin</button>
+          </router-link>
           <div class="topbarcontentright">
             <button class="topbarbtn" @click="toggleKurv">kurv</button>
           </div>

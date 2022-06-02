@@ -4,7 +4,7 @@
   </head>
   <body>
     <div class="home">
-      <div v-for="product in inventory.slice(0,10)" :key="product.id" class="card">
+      <div v-for="product in inventory" :key="product.id" class="card">
         <div class="cardtitle">
           {{ product.name }}
         </div>
@@ -33,7 +33,8 @@
 </template>
 
 <script>
-import vare from '../Vare.json'
+// import vare from '../Vare.json'
+const WaresURL = 'https://salgshjemmesiderestservice.azurewebsites.net/api/Wares'
 // @ is an alias to /src
 
 export default {
@@ -43,13 +44,20 @@ export default {
   data () {
     return {
       quantity: 0,
-      inventory: vare
+      inventory: 0
     }
   },
   methods: {
+    async getWare () {
+      const response = await fetch(WaresURL)
+      const data = await response.json()
+      console.log(data)
+      this.inventory = data
+    }
   },
   created: function () {
     console.log(this.inventory)
+    this.getWare()
   }
 }
 </script>

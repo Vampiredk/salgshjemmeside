@@ -36,3 +36,9 @@
 td {
     text-align: center;
 }
+
+.cartend {
+    position: absolute;
+    top: 99%;
+    
+}

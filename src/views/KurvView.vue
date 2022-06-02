@@ -14,12 +14,21 @@
         <tr v-for="(quantity, key, i) in cart" :key="i">
           <td class="cartname"> {{ key }}</td>
           <td class="cartname"> {{ quantity }}</td>
-          <td class="cartname"> {{ findprice(key) }}</td>
+          <td class="cartname"> {{ findprice(key, quantity) }}</td>
           <td class="cartname">
             <button class="cartbtn" @click="removevare(i)"> X </button>
           </td>
         </tr>
       </tbody>
+      <div class="cartend">
+        <tr>
+          <td> total price:</td>
+          <td> 342 kr</td>
+          <td>
+            <button class="cardbtn">checkout</button>
+          </td>
+        </tr>
+      </div>
     </div>
   </div>
 </template>
@@ -38,13 +47,13 @@ export default {
     }
   },
   methods: {
-    findprice (name) {
+    findprice (name, quantity) {
       console.log(name)
+      console.log(quantity)
       if (name !== undefined) {
-        const product = this.vare.find((p) => {
-          return p.name === name
-        })
-        return product.price
+        const test = this.inventory.find(Element => Element.name === name)
+        const totalprice = test.price * quantity
+        return totalprice
       }
     }
   }
