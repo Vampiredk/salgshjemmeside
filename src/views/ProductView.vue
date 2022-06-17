@@ -1,15 +1,15 @@
 <template>
   <div v-for="product in inventory" :key="product.id" class="card">
         <div class="cardtitle">
-          {{ product.name }}
+          {{ inventory.name }}
         </div>
         <div class="cardbody">
           <div class="cardDescription">
             Beksrivelse af vare
           </div>
           <div class="cardInfo">
-            Price: {{ product.price}}<br>
-            Stock: {{ product.stock}}
+            Price: {{ inventory.price}}<br>
+            Stock: {{ inventory.stock}}
           </div>
         </div>
         <div class="cardInteraction">
@@ -29,24 +29,30 @@ const WaresURL = 'https://salgshjemmesiderestservice.azurewebsites.net/api/Wares
 // @ is an alias to /src
 
 export default {
-  name: 'KurvView',
-  props: ['dropdown'],
+  name: 'ProductView',
+  props: ['dropdown', 'addvare', 'cart', 'dropdownvalue'],
   data () {
     return {
-      inventory: 0
+      inventory: []
     }
   },
   methods: {
     async getWare (id) {
-      const response = await fetch(WaresURL + '/' + id)
+      const newURL = WaresURL + '/' + id
+      console.log(newURL)
+      const response = await fetch(newURL)
       const data = await response.json()
       console.log(data)
       this.inventory = data
+      console.log('length' + this.inventory.length)
     }
   },
   created: function () {
     console.log(this.dropdown)
-    this.getWare(this.dropdown)
+    setTimeout(() => {
+      this.getWare(this.dropdown)
+    }, 500)
+    console.log(this.inventory)
   }
 }
 </script>

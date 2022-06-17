@@ -25,16 +25,16 @@
 </template>
 
 <script>
-import inventory from '../Vare.json'
+const WaresURL = 'https://salgshjemmesiderestservice.azurewebsites.net/api/Wares'
 // @ is an alias to /src
 
 export default {
   name: 'KurvView',
-  props: ['addvare', 'cart', 'removevare'],
+  props: ['addvare', 'cart', 'removevare', 'dropdownvalue', 'dropdown'],
   data () {
     return {
       quantity: 0,
-      inventory: inventory
+      inventory: 0
     }
   },
   methods: {
@@ -46,7 +46,19 @@ export default {
         const totalprice = test.price * quantity
         return totalprice
       }
+    },
+    async getWare () {
+      const response = await fetch(WaresURL)
+      const data = await response.json()
+      console.log(data)
+      this.inventory = data
     }
+  },
+  created: function () {
+    console.log(this.inventory)
+    setTimeout(() => {
+      this.getWare()
+    }, 500)
   }
 }
 </script>

@@ -35,6 +35,7 @@
     :cart="cart"
     :addvare="addvare"
     :dropdown="dropdown"
+    :dropdownvalue="dropdownvalue"
   />
 
   <HelloWorld

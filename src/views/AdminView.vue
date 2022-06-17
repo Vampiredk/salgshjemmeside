@@ -62,7 +62,7 @@ const WaresURL = 'https://salgshjemmesiderestservice.azurewebsites.net/api/Wares
 export default {
 
   name: 'AdminView',
-  props: ['addvare', 'cart'],
+  props: ['addvare', 'cart', 'dropdownvalue', 'dropdown'],
   data () {
     return {
       quantity: 0,
@@ -98,6 +98,7 @@ export default {
       try {
         const response = await axios.put(WaresURL + '/' + id, this.Updatewarer)
         this.adddata = 'response ' + response.status + ' ' + response.statusText
+        this.UpID = 0
       } catch (ex) {
         alert(ex.message)
       }

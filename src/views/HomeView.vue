@@ -4,6 +4,7 @@
   </head>
   <body>
     <div class="home">
+
       <div v-for="product in inventory" :key="product.id" class="card">
         <div class="cardtitle">
           {{ product.name }}
@@ -40,11 +41,11 @@ const WaresURL = 'https://salgshjemmesiderestservice.azurewebsites.net/api/Wares
 export default {
 
   name: 'HomeView',
-  props: ['addvare', 'cart'],
+  props: ['addvare', 'cart', 'dropdownvalue', 'dropdown'],
   data () {
     return {
       quantity: 0,
-      inventory: 0
+      inventory: []
     }
   },
   methods: {
@@ -53,6 +54,7 @@ export default {
       const data = await response.json()
       console.log(data)
       this.inventory = data
+      console.log(this.inventory.length)
     }
   },
   created: function () {
