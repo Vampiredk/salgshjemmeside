@@ -24,7 +24,6 @@
   <router-view
     :cart="cart"
     :addvare="addvare"
-    :removevare="removevare"
   />
 
   <HelloWorld

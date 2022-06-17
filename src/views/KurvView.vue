@@ -16,19 +16,10 @@
           <td class="cartname"> {{ quantity }}</td>
           <td class="cartname"> {{ findprice(key, quantity) }}</td>
           <td class="cartname">
-            <button class="cartbtn" @click="removevare(i)"> X </button>
+            <button class="cartbtn" @click="removevare(key)"> X </button>
           </td>
         </tr>
       </tbody>
-      <div class="cartend">
-        <tr>
-          <td> total price:</td>
-          <td> 342 kr</td>
-          <td>
-            <button class="cardbtn">checkout</button>
-          </td>
-        </tr>
-      </div>
     </div>
   </div>
 </template>

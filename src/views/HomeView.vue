@@ -10,7 +10,7 @@
         </div>
         <div class="cardbody">
           <div class="cardDescription">
-            NPM RUN SERVE
+            Beksrivelse af vare
           </div>
           <div class="cardInfo">
             Price: {{ product.price}}<br>
@@ -57,7 +57,9 @@ export default {
   },
   created: function () {
     console.log(this.inventory)
-    this.getWare()
+    setTimeout(() => {
+      this.getWare()
+    }, 500)
   }
 }
 </script>

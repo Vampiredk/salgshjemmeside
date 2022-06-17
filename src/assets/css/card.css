@@ -59,3 +59,17 @@
     height: 25px;
     width: 100px;
 }
+
+.cardIDDrop {
+    position: absolute;
+    left: 100%;
+    top: 0%;
+}
+
+.cardinput {
+    position: relative;
+    width: 40px;
+    height: 20px;
+    left: -17%;
+    bottom: 25px;
+}

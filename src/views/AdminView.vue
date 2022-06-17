@@ -13,23 +13,29 @@
             <input v-model="inDescription" placeholder="Add Description">
           </div>
           <div class="cardInfo">
-            <input v-model="inPrice" type="number" min="0">
-            <input v-model="inStock" type="number" min="0">
+            <input v-model="inPrice" type="number" min="0" placeholder="Price">
+            <input v-model="inStock" type="number" min="0" placeholder="Stock">
           </div>
         </div>
         <div class="cardInteraction">
           <div class="cardquntity">
             <button class="cardbtn" @click="addwarer()">Add Ware</button>
           </div>
+          <div class="cardbtnPos">
+            <button class="cardbtn" @click="updateWare(UpdateID)">Update</button>
+            <div>
+              <input v-model="UpID" type="number" min="0" placeholder="ID" class="cardinput">
+            </div>
+          </div>
         </div>
       </div>
       <div v-for="product in inventory" :key="product.id" class="card">
         <div class="cardtitle">
-          {{ product.name }}
+           {{ product.name }} #{{ product.id }}
         </div>
         <div class="cardbody">
           <div class="cardDescription">
-            NPM RUN SERVE
+            Beksrivelse af vare
           </div>
           <div class="cardInfo">
             Price: {{ product.price}}<br>
@@ -38,9 +44,6 @@
         </div>
         <div class="cardInteraction">
           <div class="cardquntity">
-            <button class="cardbtn">Update</button>
-          </div>
-          <div class="cardbtnPos">
             <button class="cardbtn" @click="removeWare(product.id)">Remove</button>
           </div>
         </div>
@@ -90,12 +93,30 @@ export default {
       setTimeout(() => {
         this.getWare()
       }, 500)
+    },
+    async updateWare (id) {
+      try {
+        const response = await axios.put(WaresURL + '/' + id, this.Updatewarer)
+        this.adddata = 'response ' + response.status + ' ' + response.statusText
+      } catch (ex) {
+        alert(ex.message)
+      }
+      setTimeout(() => {
+        this.getWare()
+      }, 500)
     }
   },
   computed: {
     Warer () {
       return { name: this.inName, price: this.inPrice, stock: this.inStock, id: 5 }
+    },
+    Updatewarer () {
+      return { name: this.inName, price: this.inPrice, stock: this.inStock, id: this.UpdateID }
+    },
+    UpdateID () {
+      return this.UpID
     }
+
   },
   created: function () {
     console.log(this.inventory)
