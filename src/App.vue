@@ -14,6 +14,16 @@
           <router-link to="/admin">
             <button class="topbarbtn">Admin</button>
           </router-link>
+          <div class="dropdown">
+          <button class="dropbtn">Categories</button>
+          <router-link to="/Product">
+            <div class="dropdown-content">
+              <a @click="dropdownvalue(1)" rehf="#">category 1</a>
+              <a @click="dropdownvalue(2)" href="#">category 2</a>
+              <a @click="dropdownvalue(3)" href="#">category 3</a>
+            </div>
+            </router-link>
+          </div>
           <div class="topbarcontentright">
             <button class="topbarbtn" @click="toggleKurv">kurv</button>
           </div>
@@ -24,6 +34,7 @@
   <router-view
     :cart="cart"
     :addvare="addvare"
+    :dropdown="dropdown"
   />
 
   <HelloWorld
@@ -43,7 +54,8 @@ export default {
   data () {
     return {
       cart: {},
-      showkurv: false
+      showkurv: false,
+      dropdown: 0
     }
   },
   computed: {
@@ -65,6 +77,9 @@ export default {
     },
     removevare (name) {
       delete this.cart[name]
+    },
+    dropdownvalue (value) {
+      this.dropdown = value
     }
   }
 }
