@@ -25,6 +25,9 @@
             </router-link>
           </div>
           <div class="topbarcontentright">
+            <router-link to="/login">
+            <button class="topbarbtn">Login</button>
+          </router-link>
             <button class="topbarbtn" @click="toggleKurv">kurv</button>
           </div>
         </div>
