@@ -18,9 +18,9 @@
           <button class="dropbtn">Categories</button>
           <router-link to="/Product">
             <div class="dropdown-content">
-              <a @click="dropdownvalue(1)" rehf="#">category 1</a>
-              <a @click="dropdownvalue(2)" href="#">category 2</a>
-              <a @click="dropdownvalue(3)" href="#">category 3</a>
+              <a @click="dropdownvalue('Food')" rehf="#">Food</a>
+              <a @click="dropdownvalue('Car')" href="#">Car</a>
+              <a @click="dropdownvalue('Components')" href="#">Components</a>
             </div>
             </router-link>
           </div>
@@ -59,7 +59,7 @@ export default {
     return {
       cart: {},
       showkurv: false,
-      dropdown: 0
+      dropdown: ''
     }
   },
   computed: {

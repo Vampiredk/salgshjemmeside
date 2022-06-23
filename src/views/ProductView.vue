@@ -1,15 +1,15 @@
 <template>
   <div v-for="product in inventory" :key="product.id" class="card">
         <div class="cardtitle">
-          {{ inventory.name }}
+          {{ product.name }}
         </div>
         <div class="cardbody">
           <div class="cardDescription">
             Beksrivelse af vare
           </div>
           <div class="cardInfo">
-            Price: {{ inventory.price}}<br>
-            Stock: {{ inventory.stock}}
+            Price: {{ product.price}}<br>
+            Stock: {{ product.stock}}
           </div>
         </div>
         <div class="cardInteraction">
