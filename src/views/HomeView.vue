@@ -4,7 +4,6 @@
   </head>
   <body>
     <div class="home">
-
       <div v-for="product in inventory" :key="product.id" class="card">
         <div class="cardtitle">
           {{ product.name }}

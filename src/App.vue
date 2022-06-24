@@ -8,7 +8,7 @@
           <router-link to="/">
             <button class="topbarbtn">Home</button>
           </router-link>
-          <router-link to="/kurv">
+          <router-link to="/Checkout">
             <button class="topbarbtn">Product</button>
           </router-link>
           <router-link to="/admin">
@@ -59,7 +59,8 @@ export default {
     return {
       cart: {},
       showkurv: false,
-      dropdown: ''
+      dropdown: '',
+      totalvalue: 0
     }
   },
   computed: {

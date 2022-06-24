@@ -117,7 +117,6 @@ export default {
     UpdateID () {
       return this.UpID
     }
-
   },
   created: function () {
     console.log(this.inventory)

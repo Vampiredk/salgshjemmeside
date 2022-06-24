@@ -1,27 +1,27 @@
 <template>
   <div v-for="product in inventory" :key="product.id" class="card">
-        <div class="cardtitle">
-          {{ product.name }}
-        </div>
-        <div class="cardbody">
-          <div class="cardDescription">
-            Beksrivelse af vare
-          </div>
-          <div class="cardInfo">
-            Price: {{ product.price}}<br>
-            Stock: {{ product.stock}}
-          </div>
-        </div>
-        <div class="cardInteraction">
-          <div class="cardquntity">
-            Quantity:
-            <input type="number" v-model="product.quantity" min="0" max="100" step="1">
-          </div>
-          <div class="cardbtnPos">
-            <button class="cardbtn" @click="addvare(product.name, product.quantity)">Add to Cart</button>
-          </div>
-        </div>
+    <div class="cardtitle">
+      {{ product.name }}
+    </div>
+    <div class="cardbody">
+      <div class="cardDescription">
+        Beksrivelse af vare
       </div>
+      <div class="cardInfo">
+        Price: {{ product.price}}<br>
+        Stock: {{ product.stock}}
+      </div>
+    </div>
+    <div class="cardInteraction">
+      <div class="cardquntity">
+        Quantity:
+        <input type="number" v-model="product.quantity" min="0" max="100" step="1">
+      </div>
+      <div class="cardbtnPos">
+        <button class="cardbtn" @click="addvare(product.name, product.quantity)">Add to Cart</button>
+      </div>
+    </div>
+  </div>
 </template>
 
 <script>
