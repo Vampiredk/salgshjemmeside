@@ -28,7 +28,9 @@
             <router-link to="/login">
             <button class="topbarbtn">Login</button>
           </router-link>
+          <router-link to="/kurv">
             <button class="topbarbtn" @click="toggleKurv">kurv</button>
+          </router-link>
           </div>
         </div>
       </div>

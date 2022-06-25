@@ -10,7 +10,9 @@
         </div>
         <div class="cardbody">
           <div class="cardDescription">
-            <input v-model="inDescription" placeholder="Type">
+            <input v-model="inType" placeholder="Type">
+            <br>
+            <input v-model="inDesc" placeholder="Descript">
           </div>
           <div class="cardInfo">
             <input v-model="inPrice" type="number" min="0" placeholder="Price">
@@ -35,7 +37,8 @@
         </div>
         <div class="cardbody">
           <div class="cardDescription">
-            Type: {{ product.type}}
+            Type: {{ product.type}} <br>
+            {{ product.description}}
           </div>
           <div class="cardInfo">
             Price: {{ product.price}}<br>
@@ -109,10 +112,10 @@ export default {
   },
   computed: {
     Warer () {
-      return { name: this.inName, type: this.inDescription, price: this.inPrice, stock: this.inStock, id: 5 }
+      return { name: this.inName, type: this.inType, description: this.inDesc, price: this.inPrice, stock: this.inStock, id: 5 }
     },
     Updatewarer () {
-      return { name: this.inName, type: this.inDescription, price: this.inPrice, stock: this.inStock, id: this.UpdateID }
+      return { name: this.inName, type: this.inType, description: this.inDesc, price: this.inPrice, stock: this.inStock, id: this.UpdateID }
     },
     UpdateID () {
       return this.UpID
