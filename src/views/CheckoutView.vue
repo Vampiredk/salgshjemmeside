@@ -8,7 +8,7 @@
                 <tr v-for="(quantity, key, i) in cart" :key="i">
                     <td class="cartname"> {{ key }}</td>
                     <td class="cartname"> {{ quantity }} Stk.</td>
-                    <td class="cartname"> {{ findprice(key, quantity) }} $</td>
+                    <td class="cartname"> {{ findprice(key, quantity) }} DKK</td>
                 </tr>
             </tbody>
         </div>

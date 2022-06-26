@@ -14,14 +14,14 @@
             {{ product.description}}
           </div>
           <div class="cardInfo">
-            Price: {{ product.price}}<br>
+            Price: {{ product.price}} DKK<br>
             Stock: {{ product.stock}}
           </div>
         </div>
         <div class="cardInteraction">
           <div class="cardquntity">
             Quantity:
-            <input type="number" v-model="product.quantity" min="0" max="100" step="1">
+            <input type="number" v-model="product.quantity" min="1" max="100" step="1">
           </div>
           <div class="cardbtnPos">
             <button class="cardbtn" @click="addvare(product.name, product.quantity)">Add to Cart</button>
