@@ -15,37 +15,10 @@
         <div>
             Total Price: {{calculatetotal()}}
         </div>
-        <div class="container">
-        <form>
-          <label>Name</label>
-          <input
-            type="text"
-            v-model="ejName"
-            name="name"
-            placeholder="Your Name"
-          >
-          <label>Email</label>
-          <input
-            type="email"
-            v-model="email"
-            name="email"
-            placeholder="Your Email"
-            >
-         <label>Message</label>
-          <textarea
-            name="message"
-            v-model="message"
-            cols="30" rows="5"
-            placeholder="Message">
-          </textarea>
-          <input type="submit" value="Send">
-        </form>
-    </div>
     </div>
 </template>
 
 <script>
-import emailjs from 'emailjs-com'
 const WaresURL = 'https://salgshjemmesiderestservice.azurewebsites.net/api/Wares'
 
 // @ is an alias to /src
@@ -79,28 +52,9 @@ export default {
       const data = await response.json()
       console.log(data)
       this.inventory = data
-    },
-    sendEmail (e) {
-      try {
-        emailjs.sendForm('service_sfmumua', 'template_vd3nvb8', e.target,
-          '31drUeLFvBRJZ1O7E', {
-            name: this.name,
-            email: this.email,
-            message: this.message
-          })
-      } catch (error) {
-        console.log({ error })
-      }
-      // Reset form field
-      this.name = ''
-      this.email = ''
-      this.message = ''
     }
   },
   computed: {
-    EmailNameComputed () {
-      return this.ejName
-    },
     Updatewarer () {
       return { name: this.inName, price: this.inPrice, stock: this.inStock, id: this.UpdateID }
     },
