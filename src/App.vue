@@ -67,6 +67,9 @@ export default {
   methods: {
     addvare (name, quantity) {
       if (!this.cart[name]) this.cart[name] = 0
+      if (quantity == null) {
+        quantity = 1
+      }
       this.cart[name] += quantity
       console.log(this.cart)
     },
