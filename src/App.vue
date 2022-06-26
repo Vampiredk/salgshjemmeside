@@ -8,9 +8,17 @@
           <router-link to="/">
             <button class="topbarbtn">Home</button>
           </router-link>
-          <router-link to="/admin">
-            <button class="topbarbtn">Admin</button>
-          </router-link>
+          <div class="dropdown">
+          <button class="dropbtn">Admin</button>
+            <div class="dropdown-content">
+              <router-link to="/admin">
+                <a rehf="#">Product</a>
+              </router-link>
+              <router-link to="/Ordre">
+                <a href="#">Order</a>
+              </router-link>
+            </div>
+          </div>
           <div class="dropdown">
           <button class="dropbtn">Categories</button>
           <router-link to="/Product">

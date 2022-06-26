@@ -23,8 +23,11 @@
             Quantity:
             <input type="number" v-model="product.quantity" min="1" max="100" step="1">
           </div>
-          <div class="cardbtnPos">
+          <div class="cardbtnPos" v-if="product.stock > 0">
             <button class="cardbtn" @click="addvare(product.name, product.quantity)">Add to Cart</button>
+          </div>
+          <div class="cardbtnPos" v-else-if="product.stock === 0">
+            <button class="cardbtn">Out of Stock</button>
           </div>
         </div>
       </div>

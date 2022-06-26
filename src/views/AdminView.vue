@@ -100,6 +100,7 @@ export default {
     async updateWare (id) {
       try {
         const response = await axios.put(WaresURL + '/' + id, this.Updatewarer)
+        console.log(this.updateWare)
         this.adddata = 'response ' + response.status + ' ' + response.statusText
         this.UpID = 0
       } catch (ex) {

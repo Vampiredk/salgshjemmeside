@@ -14,7 +14,7 @@
         <tr v-for="(quantity, key, i) in cart" :key="i">
           <td class="cartname"> {{ key }}</td>
           <td class="cartname"> {{ quantity }} Stk.</td>
-          <td class="cartname"> {{ findprice(key, quantity) }} DKK</td>
+          <td class="cartname"> {{ findprice(key) }} DKK</td>
           <td class="cartname">
             <button class="cartbtn" @click="removevare(key)"> X </button>
           </td>
