@@ -8,7 +8,7 @@
                 <tr v-for="(quantity, key, i) in cart" :key="i">
                     <td class="cartname"> {{ key }}</td>
                     <td class="cartname"> {{ quantity }} Stk.</td>
-                    <td class="cartname"> {{ findprice(key, quantity) }} DKK</td>
+                    <td class="cartname"> {{ findprice(key) }} DKK</td>
                 </tr>
             </tbody>
         </div>
@@ -42,24 +42,16 @@ export default {
     },
     calculatetotal () {
       const total = Object.entries(this.cart).reduce((acc, curr, index) => {
-        console.log(curr[2])
         return acc + (curr[1] * this.findprice(curr[0]))
       }, 0)
       return total
+      /// Navn: antal
     },
     async getWare () {
       const response = await fetch(WaresURL)
       const data = await response.json()
       console.log(data)
       this.inventory = data
-    }
-  },
-  computed: {
-    Updatewarer () {
-      return { name: this.inName, price: this.inPrice, stock: this.inStock, id: this.UpdateID }
-    },
-    UpdateID () {
-      return this.UpID
     }
   },
   created: function () {
