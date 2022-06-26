@@ -36,6 +36,7 @@
   <router-view
     :cart="cart"
     :addvare="addvare"
+    :removevare="removevare"
     :dropdown="dropdown"
     :dropdownvalue="dropdownvalue"
   />
