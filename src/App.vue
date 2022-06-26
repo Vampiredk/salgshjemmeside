@@ -58,6 +58,7 @@
 
 <script>
 import HelloWorld from './components/HelloWorld.vue'
+const WaresURL = 'https://salgshjemmesiderestservice.azurewebsites.net/api/Wares'
 
 export default {
   components: {
@@ -75,12 +76,19 @@ export default {
   },
   methods: {
     addvare (name, quantity) {
-      if (!this.cart[name]) this.cart[name] = 0
-      if (quantity == null) {
-        quantity = 1
+      const product = this.inventory.find((p) => {
+        return p.name === name
+      })
+      if (quantity > product.stock) {
+        alert('Der er ikke nok af denne vare')
+      } else {
+        if (!this.cart[name]) this.cart[name] = 0
+        if (quantity == null) {
+          quantity = 1
+        }
+        this.cart[name] += quantity
+        console.log(this.cart)
       }
-      this.cart[name] += quantity
-      console.log(this.cart)
     },
     toggleKurv () {
       if (this.showkurv === true) {
@@ -96,7 +104,18 @@ export default {
     },
     dropdownvalue (value) {
       this.dropdown = value
+    },
+    async getWare () {
+      const response = await fetch(WaresURL)
+      const data = await response.json()
+      console.log(data)
+      this.inventory = data
     }
+  },
+  created: function () {
+    setTimeout(() => {
+      this.getWare()
+    }, 500)
   }
 }
 </script>

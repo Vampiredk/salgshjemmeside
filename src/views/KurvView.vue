@@ -60,7 +60,6 @@ export default {
     },
     calculatetotal () {
       const total = Object.entries(this.cart).reduce((acc, curr, index) => {
-        console.log(curr[2])
         return acc + (curr[1] * this.findprice(curr[0]))
       }, 0)
       return total
