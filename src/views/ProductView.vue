@@ -5,7 +5,8 @@
     </div>
     <div class="cardbody">
       <div class="cardDescription">
-        Beksrivelse af vare
+        Type: {{ product.type}} <br>
+        {{ product.description}}
       </div>
       <div class="cardInfo">
         Price: {{ product.price}}<br>

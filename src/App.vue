@@ -8,9 +8,6 @@
           <router-link to="/">
             <button class="topbarbtn">Home</button>
           </router-link>
-          <router-link to="/Checkout">
-            <button class="topbarbtn">Product</button>
-          </router-link>
           <router-link to="/admin">
             <button class="topbarbtn">Admin</button>
           </router-link>
