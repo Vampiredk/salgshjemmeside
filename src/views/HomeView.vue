@@ -32,6 +32,9 @@
         </div>
       </div>
     </div>
+    <button @click="drink = 'Coffee'">
+      <font-awesome-icon icon="coffee" size="4x"/>
+    </button>
   </body>
 
 </template>

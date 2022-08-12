@@ -28,6 +28,12 @@
     position: absolute;
     top: 25%;
 }
+.topbarcontentnext{
+    text-align: right;
+    right: 5%;
+    position: absolute;
+    top: 25%;
+}
 
 .topbarbtn {
     margin-right: 10px;
