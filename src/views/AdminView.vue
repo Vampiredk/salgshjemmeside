@@ -15,13 +15,13 @@
             <input v-model="inDesc" placeholder="Descript">
           </div>
           <div class="cardInfo">
-            <input v-model="inPrice" type="number" min="0" placeholder="Price">
-            <input v-model="inStock" type="number" min="0" placeholder="Stock">
+            <input v-model="inPrice" type="number" min="0" placeholder="Pris">
+            <input v-model="inStock" type="number" min="0" placeholder="Lager">
           </div>
         </div>
         <div class="cardInteraction">
           <div class="cardquntity">
-            <button class="cardbtn" @click="addwarer()">Add Ware</button>
+            <button class="cardbtn" @click="addwarer()">Tilføj Vare</button>
           </div>
           <div class="cardbtnPos">
             <button class="cardbtn" @click="updateWare(UpdateID)">Update</button>
@@ -41,13 +41,13 @@
             {{ product.description}}
           </div>
           <div class="cardInfo">
-            Price: {{ product.price}}<br>
-            Stock: {{ product.stock}}
+            Pris: {{ product.price}}<br>
+            Lager: {{ product.stock}}
           </div>
         </div>
         <div class="cardInteraction">
           <div class="cardquntity">
-            <button class="cardbtn" @click="removeWare(product.id)">Remove</button>
+            <button class="cardbtn" @click="removeWare(product.id)">Fjern</button>
           </div>
         </div>
       </div>

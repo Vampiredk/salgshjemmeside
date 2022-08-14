@@ -14,8 +14,8 @@
             {{ product.description}}
           </div>
           <div class="cardInfo">
-            Price: {{ product.price}} DKK<br>
-            Stock: {{ product.stock}}
+            Pris: {{ product.price}} DKK<br>
+            Lager: {{ product.stock}}
           </div>
         </div>
         <div class="cardInteraction">
@@ -24,10 +24,10 @@
             <input type="number" v-model="product.quantity" min="1" max="100" step="1">
           </div>
           <div class="cardbtnPos" v-if="product.stock > 0">
-            <button class="cardbtn" @click="addvare(product.name, product.quantity)">Add to Cart</button>
+            <button class="cardbtn" @click="addvare(product.name, product.quantity)">Tilføj til Kurv</button>
           </div>
           <div class="cardbtnPos" v-else-if="product.stock === 0">
-            <button class="cardbtn">Out of Stock</button>
+            <button class="cardbtn">Ikke på Lager</button>
           </div>
         </div>
       </div>
