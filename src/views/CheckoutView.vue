@@ -3,17 +3,20 @@
         <div class="CheckoutTitle">
             Din Order
         </div>
-        <div class="cartbody">
-            <tbody>
-                <tr v-for="(quantity, key, i) in cart" :key="i">
-                    <td class="cartname"> {{ key }}</td>
-                    <td class="cartname"> {{ quantity }} Stk.</td>
-                    <td class="cartname"> {{ findprice(key) }} DKK</td>
-                </tr>
-            </tbody>
-        </div>
-        <div>
-            Total Price: {{calculatetotal()}}
+        <div class="checkoutbody">
+          <div class="cartbody">
+              <tbody>
+                  <tr v-for="(quantity, key, i) in cart" :key="i">
+                      <td class="cartname"> {{ key }}</td>
+                      <td class="cartname"> {{ quantity }} Stk.</td>
+                      <td class="cartname"> {{ findprice(key) }} DKK</td>
+                  </tr>
+              </tbody>
+          </div>
+          <div class="checkoutend">
+              Total Price: {{calculatetotal()}}<br>
+              <button>Luk ordre</button><button>Køb Ordre</button>
+          </div>
         </div>
     </div>
 </template>

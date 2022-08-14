@@ -16,3 +16,13 @@
     padding-top: 2px;
     padding-bottom: 2px;
 }
+.checkoutbody {
+    position: absolute;
+    height: 50%;
+    width: 500px;
+}
+
+.checkoutend {
+    position: relative;
+    top: 97%
+}
