@@ -26,7 +26,7 @@
 </template>
 
 <script>
-const WaresURL = 'https://salgshjemmesiderestservice.azurewebsites.net/api/Wares'
+const WaresURL = 'https://restservicesalgside.azurewebsites.net/api/wares'
 // @ is an alias to /src
 
 export default {
