@@ -6,13 +6,13 @@
     <div class="home">
       <div class="card">
         <div class="cardtitle">
-          <input v-model="inName" placeholder="Add Name">
+          <input v-model="inName" placeholder="Navn">
         </div>
         <div class="cardbody">
           <div class="cardDescription">
             <input v-model="inType" placeholder="Type">
             <br>
-            <input v-model="inDesc" placeholder="Descript">
+            <input v-model="inDesc" placeholder="Beskrivelse">
           </div>
           <div class="cardInfo">
             <input v-model="inPrice" type="number" min="0" placeholder="Pris">
@@ -87,15 +87,19 @@ export default {
       }, 500)
     },
     async addwarer () {
-      try {
-        const response = await axios.post(WaresURL, this.Warer)
-        this.adddata = 'response ' + response.status + ' ' + response.statusText
-      } catch (ex) {
-        alert(ex.message)
+      if (this.inName.length < 45) {
+        try {
+          const response = await axios.post(WaresURL, this.Warer)
+          this.adddata = 'response ' + response.status + ' ' + response.statusText
+        } catch (ex) {
+          alert(ex.message)
+        }
+        setTimeout(() => {
+          this.getWare()
+        }, 500)
+      } else {
+        alert('navnet er for langt')
       }
-      setTimeout(() => {
-        this.getWare()
-      }, 500)
     },
     async updateWare (id) {
       try {
