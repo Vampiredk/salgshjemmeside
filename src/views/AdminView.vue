@@ -70,7 +70,8 @@ export default {
     return {
       quantity: 0,
       inventory: 0,
-      inName: ''
+      inName: '',
+      alerttext: ''
     }
   },
   methods: {
@@ -87,7 +88,7 @@ export default {
       }, 500)
     },
     async addwarer () {
-      if (this.inName.length < 45) {
+      if (this.inName.length < 2) {
         try {
           const response = await axios.post(WaresURL, this.Warer)
           this.adddata = 'response ' + response.status + ' ' + response.statusText
@@ -98,7 +99,9 @@ export default {
           this.getWare()
         }, 500)
       } else {
-        alert('navnet er for langt')
+        this.alerttext += 'Navnet er for langt (maks 45 tegn)'
+        alert(this.alerttext)
+        this.alerttext = ''
       }
     },
     async updateWare (id) {
