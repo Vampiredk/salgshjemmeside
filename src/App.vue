@@ -63,9 +63,9 @@
             </button>
           <router-link to="/Product">
             <div class="dropdown-content">
-              <a @click="dropdownvalue('Mad')" rehf="#">Food</a>
-              <a @click="dropdownvalue('Bil')" href="#">Car</a>
-              <a @click="dropdownvalue('Materiale')" href="#">Components</a>
+              <a @click="dropdownvalue('Food')" rehf="#">Mad</a>
+              <a @click="dropdownvalue('Car')" href="#">Biller</a>
+              <a @click="dropdownvalue('Components')" href="#">Materiale</a>
             </div>
             </router-link>
           </div>
