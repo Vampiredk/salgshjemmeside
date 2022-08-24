@@ -31,23 +31,23 @@
           </div>
         </div>
       </div>
-      <div v-for="product in inventory" :key="product.id" class="card">
+      <div v-for="product in inventory" :key="product.Vare_id" class="card">
         <div class="cardtitle">
-           {{ product.name }} #{{ product.id }}
+           {{ product.navn }} #{{ product.Vare_id }}
         </div>
         <div class="cardbody">
           <div class="cardDescription">
             Type: {{ product.type}} <br>
-            {{ product.description}}
+            {{ product.beskrivelse}}
           </div>
           <div class="cardInfo">
-            Pris: {{ product.price}}<br>
-            Lager: {{ product.stock}}
+            Pris: {{ product.pris}}<br>
+            Lager: {{ product.lager}}
           </div>
         </div>
         <div class="cardInteraction">
           <div class="cardquntity">
-            <button class="cardbtn" @click="removeWare(product.id)">Fjern</button>
+            <button class="cardbtn" @click="removeWare(product.Vare_id)">Fjern</button>
           </div>
         </div>
       </div>
@@ -88,7 +88,7 @@ export default {
       }, 500)
     },
     async addwarer () {
-      if (this.inName.length < 2) {
+      if (this.inName.length < 45) {
         try {
           const response = await axios.post(WaresURL, this.Warer)
           this.adddata = 'response ' + response.status + ' ' + response.statusText
@@ -119,10 +119,10 @@ export default {
   },
   computed: {
     Warer () {
-      return { name: this.inName, type: this.inType, description: this.inDesc, price: this.inPrice, stock: this.inStock, id: 5 }
+      return { navn: this.inName, type: this.inType, beskrivelse: this.inDesc, pris: this.inPrice, lager: this.inStock, kunde_id: this.UpdateID }
     },
     Updatewarer () {
-      return { name: this.inName, type: this.inType, description: this.inDesc, price: this.inPrice, stock: this.inStock, id: this.UpdateID }
+      return { navn: this.inName, type: this.inType, beskrivelse: this.inDesc, pris: this.inPrice, lager: this.inStock, kunde_id: this.UpdateID }
     },
     UpdateID () {
       return this.UpID

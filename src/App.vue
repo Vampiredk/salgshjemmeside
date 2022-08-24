@@ -128,18 +128,18 @@ export default {
   computed: {
   },
   methods: {
-    addvare (name, quantity) {
+    addvare (navn, quantity) {
       const product = this.inventory.find((p) => {
-        return p.name === name
+        return p.navn === navn
       })
-      if (quantity > product.stock) {
+      if (quantity > product.lager) {
         alert('Der er ikke nok af denne vare')
       } else {
-        if (!this.cart[name]) this.cart[name] = 0
+        if (!this.cart[navn]) this.cart[navn] = 0
         if (quantity == null) {
           quantity = 1
         }
-        this.cart[name] += quantity
+        this.cart[navn] += quantity
         console.log(this.cart)
         this.itemsadded += quantity
       }
@@ -153,9 +153,9 @@ export default {
         this.showkurv = true
       }
     },
-    removevare (name) {
-      this.itemsadded -= this.cart[name]
-      delete this.cart[name]
+    removevare (navn) {
+      this.itemsadded -= this.cart[navn]
+      delete this.cart[navn]
     },
     dropdownvalue (value) {
       this.dropdown = value

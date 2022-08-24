@@ -46,11 +46,11 @@ export default {
     }
   },
   methods: {
-    findprice (name) {
+    findprice (navn) {
       const product = this.inventory.find((p) => {
-        return p.name === name
+        return p.navn === navn
       })
-      return product.price
+      return product.pris
     },
     async getWare () {
       const response = await fetch(WaresURL)
