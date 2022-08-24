@@ -59,7 +59,7 @@
 <script>
 // import vare from '../Vare.json'
 import axios from 'axios'
-const WaresURL = 'https://restservicesalgside.azurewebsites.net/api/wares'
+const WaresURL = 'https://varedbrest.azurewebsites.net/api/vare'
 // @ is an alias to /src
 
 export default {

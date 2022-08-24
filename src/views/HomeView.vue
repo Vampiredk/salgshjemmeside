@@ -6,16 +6,16 @@
     <div class="home">
       <div v-for="product in inventory" :key="product.id" class="card">
         <div class="cardtitle">
-          {{ product.name }}
+          {{ product.navn }}
         </div>
         <div class="cardbody">
           <div class="cardDescription">
             Type: {{ product.type}} <br>
-            {{ product.description}}
+            {{ product.beskrivelse}}
           </div>
           <div class="cardInfo">
-            Pris: {{ product.price}} DKK<br>
-            Lager: {{ product.stock}}
+            Pris: {{ product.pris}} DKK<br>
+            Lager: {{ product.lager}}
           </div>
         </div>
         <div class="cardInteraction">
@@ -23,10 +23,10 @@
             Quantity:
             <input type="number" v-model="product.quantity" min="1" max="100" step="1">
           </div>
-          <div class="cardbtnPos" v-if="product.stock > 0">
+          <div class="cardbtnPos" v-if="product.lager > 0">
             <button class="cardbtn" @click="addvare(product.name, product.quantity)">Tilføj til Kurv</button>
           </div>
-          <div class="cardbtnPos" v-else-if="product.stock === 0">
+          <div class="cardbtnPos" v-else-if="product.lager === 0">
             <button class="cardbtn">Ikke på Lager</button>
           </div>
         </div>
@@ -41,7 +41,7 @@
 
 <script>
 // import vare from '../Vare.json'
-const WaresURL = 'https://restservicesalgside.azurewebsites.net/api/wares'
+const WaresURL = 'https://varedbrest.azurewebsites.net/api/vare'
 // @ is an alias to /src
 
 export default {

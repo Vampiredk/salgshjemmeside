@@ -110,7 +110,7 @@
 <script>
 import HelloWorld from './components/HelloWorld.vue'
 
-const WaresURL = 'https://restservicesalgside.azurewebsites.net/api/wares'
+const WaresURL = 'https://varedbrest.azurewebsites.net/api/vare'
 
 export default {
   components: {
