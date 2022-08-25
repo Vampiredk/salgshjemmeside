@@ -1,16 +1,16 @@
 <template>
   <div v-for="product in inventory" :key="product.id" class="card">
     <div class="cardtitle">
-      {{ product.name }}
+      {{ product.navn }}
     </div>
     <div class="cardbody">
       <div class="cardDescription">
         Type: {{ product.type}} <br>
-        {{ product.description}}
+        {{ product.beskrivelse}}
       </div>
       <div class="cardInfo">
-        Price: {{ product.price}}<br>
-        Stock: {{ product.stock}}
+        Price: {{ product.pris}}<br>
+        Stock: {{ product.lager}}
       </div>
     </div>
     <div class="cardInteraction">
@@ -19,14 +19,14 @@
         <input type="number" v-model="product.quantity" min="1" max="100" step="1">
       </div>
       <div class="cardbtnPos">
-        <button class="cardbtn" @click="addvare(product.name, product.quantity)">Add to Cart</button>
+        <button class="cardbtn" @click="addvare(product.navn, product.quantity)">Add to Cart</button>
       </div>
     </div>
   </div>
 </template>
 
 <script>
-const WaresURL = 'https://varedbrest.azurewebsites.net/api/vare'
+const WaresURL = 'https://varedbrest.azurewebsites.net/api/vare/type'
 // @ is an alias to /src
 
 export default {
