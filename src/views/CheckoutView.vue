@@ -21,23 +21,26 @@
               Udløbsdato<br>
               <input placeholder="Udløbsdato"><br>
               Navn<br>
-              <input placeholder="Navn"><br>
+              <input v-model="InNavn" placeholder="Navn"><br>
               Telefonnumer<br>
-              <input placeholder="Telefon"><br>
+              <input v-model="InTele" placeholder="Telefon"><br>
               Addresse<br>
-              <input placeholder="Addresse"><br>
+              <input v-model="inAddr" placeholder="Addresse"><br>
               Postnummer<br>
-              <input placeholder="Postnummer"><br>
+              <input v-model="inPost" placeholder="Postnummer"><br>
           </div>
-          <div class="checkoutend">
               Total Price: {{calculatetotal()}}<br>
-              <button>Luk ordre</button><button>Køb Ordre</button>
-          </div>
+              <button>Luk ordre</button>
+              <button @click="addKunde()">Køb Ordre</button>
         </div>
     </div>
 </template>
 
 <script>
+import axios from 'axios'
+const OrdreURL = 'https://varedbrest.azurewebsites.net/api/Ordre'
+const OrdrevareURL = 'https://varedbrest.azurewebsites.net/api/Ordre_vare'
+const kundeURL = 'https://varedbrest.azurewebsites.net/api/Kunde'
 const WaresURL = 'https://varedbrest.azurewebsites.net/api/vare'
 
 // @ is an alias to /src
@@ -49,7 +52,10 @@ export default {
     return {
       quantity: 0,
       inventory: 0,
-      TotalPriceValue: 0
+      TotalPriceValue: 0,
+      Kunder: [],
+      Ordre: [],
+      Ordre_vare: []
     }
   },
   methods: {
@@ -71,13 +77,47 @@ export default {
       const data = await response.json()
       console.log(data)
       this.inventory = data
+    },
+    async getKunde () {
+      const response = await fetch(kundeURL)
+      const data = await response.json()
+      console.log(data)
+      this.Kunder = data
+    },
+    async getOrdre () {
+      const response = await fetch(OrdrevareURL)
+      const data = await response.json()
+      console.log(data)
+      this.Ordre = data
+    },
+    async getOrdre_vare () {
+      const response = await fetch(OrdreURL)
+      const data = await response.json()
+      console.log(data)
+      this.Ordre_vare = data
+    },
+    async addKunde () {
+      try {
+        const response = await axios.post(kundeURL, this.kunde)
+        this.adddata = 'response ' + response.status + ' ' + response.statusText
+      } catch (ex) {
+        alert(ex.message)
+      }
     }
   },
   created: function () {
     console.log(this.inventory)
     setTimeout(() => {
       this.getWare()
+      this.getKunde()
+      this.getOrdre()
+      this.getOrdre_vare()
     }, 500)
+  },
+  computed: {
+    kunde () {
+      return { navn: this.InNavn, TelefonNummer: this.InTele, addresse: this.inAddr, Postnummer: this.inPost }
+    }
   }
 }
 </script>
