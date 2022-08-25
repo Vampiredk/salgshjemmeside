@@ -21,10 +21,10 @@
         <div class="cardInteraction">
           <div class="cardquntity">
             Quantity:
-            <input type="number" v-model="product.antal" min="1" max="100" step="1">
+            <input type="number" v-model="product.quantity" min="1" max="100" step="1">
           </div>
           <div class="cardbtnPos" v-if="product.lager > 0">
-            <button class="cardbtn" @click="addvare(product.navn, product.antal)">Tilføj til Kurv</button>
+            <button class="cardbtn" @click="addvare(product.navn, product.quantity)">Tilføj til Kurv</button>
           </div>
           <div class="cardbtnPos" v-else-if="product.lager === 0">
             <button class="cardbtn">Ikke på Lager</button>

@@ -38,8 +38,6 @@
 
 <script>
 import axios from 'axios'
-const OrdreURL = 'https://varedbrest.azurewebsites.net/api/Ordre'
-const OrdrevareURL = 'https://varedbrest.azurewebsites.net/api/Ordre_vare'
 const kundeURL = 'https://varedbrest.azurewebsites.net/api/Kunde'
 const WaresURL = 'https://varedbrest.azurewebsites.net/api/vare'
 
@@ -84,21 +82,9 @@ export default {
       console.log(data)
       this.Kunder = data
     },
-    async getOrdre () {
-      const response = await fetch(OrdrevareURL)
-      const data = await response.json()
-      console.log(data)
-      this.Ordre = data
-    },
-    async getOrdre_vare () {
-      const response = await fetch(OrdreURL)
-      const data = await response.json()
-      console.log(data)
-      this.Ordre_vare = data
-    },
     async addKunde () {
       try {
-        const response = await axios.post(kundeURL, this.kunde)
+        const response = await axios.post(kundeURL, this.kunde, '27 mARTS')
         this.adddata = 'response ' + response.status + ' ' + response.statusText
       } catch (ex) {
         alert(ex.message)
@@ -110,8 +96,6 @@ export default {
     setTimeout(() => {
       this.getWare()
       this.getKunde()
-      this.getOrdre()
-      this.getOrdre_vare()
     }, 500)
   },
   computed: {
