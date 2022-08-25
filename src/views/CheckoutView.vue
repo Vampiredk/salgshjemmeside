@@ -37,11 +37,11 @@ export default {
     }
   },
   methods: {
-    findprice (name) {
+    findprice (navn) {
       const product = this.inventory.find((p) => {
-        return p.name === name
+        return p.navn === navn
       })
-      return product.price
+      return product.pris
     },
     calculatetotal () {
       const total = Object.entries(this.cart).reduce((acc, curr, index) => {

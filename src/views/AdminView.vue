@@ -31,9 +31,9 @@
           </div>
         </div>
       </div>
-      <div v-for="product in inventory" :key="product.Vare_id" class="card">
+      <div v-for="product in inventory" :key="product.vare_id" class="card">
         <div class="cardtitle">
-           {{ product.navn }} #{{ product.Vare_id }}
+           {{ product.navn }} #{{ product.vare_id }}
         </div>
         <div class="cardbody">
           <div class="cardDescription">
@@ -47,7 +47,7 @@
         </div>
         <div class="cardInteraction">
           <div class="cardquntity">
-            <button class="cardbtn" @click="removeWare(product.Vare_id)">Fjern</button>
+            <button class="cardbtn" @click="removeWare(product.vare_id)">Fjern</button>
           </div>
         </div>
       </div>
