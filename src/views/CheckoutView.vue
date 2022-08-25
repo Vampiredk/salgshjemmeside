@@ -12,6 +12,22 @@
                       <td class="cartname"> {{ findprice(key) }} DKK</td>
                   </tr>
               </tbody>
+              Kreditkort<br>
+              <input placeholder="Kreditkort"><br>
+              Kreditkort Nummer<br>
+              <input placeholder="Kreditkort nummer"><br>
+              Sikkerheds Nummer<br>
+              <input placeholder="Sikkerheds Nummer"><br>
+              Udløbsdato<br>
+              <input placeholder="Udløbsdato"><br>
+              Navn<br>
+              <input placeholder="Navn"><br>
+              Telefonnumer<br>
+              <input placeholder="Telefon"><br>
+              Addresse<br>
+              <input placeholder="Addresse"><br>
+              Postnummer<br>
+              <input placeholder="Postnummer"><br>
           </div>
           <div class="checkoutend">
               Total Price: {{calculatetotal()}}<br>

@@ -23,6 +23,7 @@
 }
 
 .checkoutend {
-    position: relative;
-    top: 97%
+    position: fixed;
+    left: 41%;
+    top: 44%
 }

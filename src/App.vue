@@ -64,7 +64,7 @@
           <router-link to="/Product">
             <div class="dropdown-content">
               <a @click="dropdownvalue('Mad')" rehf="#">Mad</a>
-              <a @click="dropdownvalue('Bil')" href="#">Biler</a>
+              <a @click="dropdownvalue('Bil')" href="#">Bil</a>
               <a @click="dropdownvalue('Materiale')" href="#">Materiale</a>
             </div>
             </router-link>
@@ -109,7 +109,7 @@
 
 <script>
 import HelloWorld from './components/HelloWorld.vue'
-
+const typeUrl = 'https://varedbrest.azurewebsites.net/api/vare_type'
 const WaresURL = 'https://varedbrest.azurewebsites.net/api/vare'
 
 export default {
@@ -122,7 +122,8 @@ export default {
       showkurv: false,
       dropdown: '',
       totalvalue: 0,
-      itemsadded: 0
+      itemsadded: 0,
+      katagori: []
     }
   },
   computed: {
@@ -158,6 +159,7 @@ export default {
       delete this.cart[navn]
     },
     dropdownvalue (value) {
+      console.log(value)
       this.dropdown = value
     },
     async getWare () {
@@ -165,10 +167,18 @@ export default {
       const data = await response.json()
       console.log(data)
       this.inventory = data
+    },
+    async getType () {
+      const response = await fetch(typeUrl)
+      const data = await response.json()
+      console.log(data)
+      this.katagori = data
+      console.log(this.katagori.length)
     }
   },
   created: function () {
     setTimeout(() => {
+      this.getType()
       this.getWare()
     }, 500)
   }
